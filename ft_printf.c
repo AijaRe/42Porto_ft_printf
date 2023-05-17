@@ -1,39 +1,52 @@
-#include "ft_printf_lib.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: arepsa <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/16 09:56:28 by arepsa            #+#    #+#             */
+/*   Updated: 2023/05/16 09:56:44 by arepsa           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 
 void	ft_check(va_list args, char *string, int i, int *count)
 {
 	char	*base10;
-	base10 = "0123456789";
 	char	*base16lo;
-	base16lo = "0123456789abcdef";
 	char	*base16up;
-	base16up = "0123456789ABCDEF";
 
+	base10 = "0123456789";
+	base16lo = "0123456789abcdef";
+	base16up = "0123456789ABCDEF";
 	if (string[i] == 'c')
-		ft_putchar(va_arg(args, int), count);
+		ft_putchar_pf(va_arg(args, int), count);
 	if (string[i] == 'd' || string[i] == 'i')
-		ft_putnbr_base(va_arg(args, int), base10, count);
+		ft_putnbr_pf(va_arg(args, int), count);
 	if (string[i] == 'u')
-		ft_putnbr_base(va_arg(args, unsigned int), base10, count);
+		ft_putnbr_pf_base(va_arg(args, unsigned int), base10, count);
 	if (string[i] == 's')
-		ft_putstr(va_arg(args, char*), count);
+		ft_putstr_pf(va_arg(args, char *), count);
 	if (string[i] == 'x')
-		ft_putnbr_base(va_arg(args, int), base16lo, count);
+		ft_putnbr_pf_base(va_arg(args, unsigned int), base16lo, count);
 	if (string[i] == 'X')
-		ft_putnbr_base(va_arg(args, int), base16up, count);
+		ft_putnbr_pf_base(va_arg(args, unsigned int), base16up, count);
 	if (string[i] == 'p')
-		ft_print_ptr(va_arg(args, unsigned long long), base10, count);
+		ft_print_ptr(va_arg(args, unsigned long long), base16lo, count);
 	if (string[i] == '%')
-		ft_putchar('%', count);
+		ft_putchar_pf('%', count);
 }
+
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	char	*string;
-	int	count;
-	int	i;
+	int		count;
+	int		i;
 
-	string = (char*)format;
+	string = (char *)format;
 	va_start(args, format);
 	i = 0;
 	count = 0;
@@ -46,7 +59,7 @@ int	ft_printf(const char *format, ...)
 		}
 		else
 		{
-			ft_putchar(string[i], &count);
+			ft_putchar_pf(string[i], &count);
 		}
 		i++;
 	}

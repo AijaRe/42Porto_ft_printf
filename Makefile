@@ -1,8 +1,20 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: arepsa <marvin@42.fr>                      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/05/17 10:25:25 by arepsa            #+#    #+#              #
+#    Updated: 2023/05/17 10:25:36 by arepsa           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME :=	libftprintf.a
 		
 SRCS =	ft_printf.c\
-		ft_printf_utils.c\
-		ft_printf_ptr.c
+	ft_printf_utils.c\
+	ft_printf_ptr.c
 
 CC := cc
 CFLAGS := -Wall -Wextra -Werror
