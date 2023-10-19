@@ -21,7 +21,18 @@ The function has to handle following conversions: cspdiuxX%
 
 Please, refer to the subject pdf for more info.
 
+## Norminette
 
+This project has to be written in accordance with the Norm, which is the coding standard of the school 42.
+
+The Norm includes:
+- Forbidden: for, do...while, switch, case, goto, ternary operators and variable-length arrays 
+- Maximum of 25 lines per function
+- Maximum line length: 80 columns
+- Maximum 4 parameters per function 
+- Variable assignments and declarations must be on separate lines
+- etc...
+  
 
 ## Create library
 
